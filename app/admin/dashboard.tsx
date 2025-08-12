@@ -16,7 +16,8 @@ type Tenant = {
 
 type DeleteState = {
   error?: string;
-  success?: string;
+  success?: boolean;
+  message?: string;
 };
 
 function DashboardHeader() {
@@ -126,9 +127,9 @@ export function AdminDashboard({ tenants }: { tenants: Tenant[] }) {
         </div>
       )}
 
-      {state.success && (
+      {state.success && state.message && (
         <div className="fixed bottom-4 right-4 bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded shadow-md">
-          {state.success}
+          {state.message}
         </div>
       )}
     </div>
